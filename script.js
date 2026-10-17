@@ -1,9 +1,9 @@
 /**
- * 학급 1인 1역할 배정 웹 애플리케이션 - script.js
+ * 치이카와 학급 1인 1역할 배정 웹 애플리케이션 - script.js
  * GitHub Pages 및 브라우저에서 순수 Vanilla JS로 완벽 동작
  */
 
-// 1. 기본 초기 데이터 (학생 12명, 역할 12개)
+// 1. 치이카와 스타일 기본 초기 데이터 (학생 12명, 역할 12개)
 const DEFAULT_STUDENTS = [
   "김민준", "이서연", "박도윤", "최지우", 
   "정하은", "강서준", "조예은", "윤시우", 
@@ -11,27 +11,31 @@ const DEFAULT_STUDENTS = [
 ];
 
 const DEFAULT_ROLES = [
-  { id: 1, name: "칠판 도우미", icon: "🧼", desc: "쉬는 시간마다 칠판을 깨끗이 지우고 분필과 지우개를 정리해요." },
-  { id: 2, name: "우유 급식 도우미", icon: "🥛", desc: "아침 우유를 번호 순서대로 나누어주고 빈 상자를 정리해요." },
-  { id: 3, name: "줄서기 반장", icon: "🚶", desc: "이동 수업이나 급식실 갈 때 바르고 조용하게 두 줄로 세워요." },
-  { id: 4, name: "학급 도서관 사서", icon: "📚", desc: "학급 문고 책꽂이를 깔끔하게 정돈하고 대출을 기록해요." },
-  { id: 5, name: "에너지 지킴이", icon: "💡", desc: "교실을 비울 때 전등과 전자칠판, 냉난방기를 끄는 지킴이예요." },
-  { id: 6, name: "초록 식물 집사", icon: "🌱", desc: "학급 화분에 정성껏 물을 주고 마른 잎을 다정하게 살펴요." },
-  { id: 7, name: "청소 정리 대장", icon: "🧹", desc: "청소 시간에 청소 도구를 챙겨주고 바닥 상태를 점검해요." },
-  { id: 8, name: "배움 학습지 나눔이", icon: "📝", desc: "선생님께서 주시는 유인물과 학습지를 모둠별로 바르게 전달해요." },
-  { id: 9, name: "맑은 공기 환기 요정", icon: "🪟", desc: "쉬는 시간마다 앞뒤 창문을 활짝 열어 맑은 공기를 마셔요." },
-  { id: 10, name: "분리배출 환경 지킴이", icon: "♻️", desc: "재활용 쓰레기를 올바르게 분리배출하도록 친구들을 도와요." },
-  { id: 11, name: "날짜·시간 알리미", icon: "📅", desc: "아침마다 교실 날짜판을 넘기고 오늘 하루 일정을 안내해요." },
-  { id: 12, name: "따뜻한 칭찬 배달원", icon: "💌", desc: "친구들의 고운 말과 착한 행동을 찾아 칭찬나무에 전해줘요." }
+  { id: 1, name: "칠판 뽀송 도우미", icon: "🧼", desc: "쉬는 시간마다 칠판을 반짝반짝 깨끗이 지워요 와아~!" },
+  { id: 2, name: "우유 냠냠 급식 도우미", icon: "🥛", desc: "아침 우유를 차례대로 나누어주고 빈 상자를 착착 정리해요!" },
+  { id: 3, name: "줄서기 골목 대장", icon: "🚶", desc: "이동 수업 갈 때 친구들과 바르고 얌전하게 두 줄로 서요!" },
+  { id: 4, name: "학급 책방 사서 요정", icon: "📚", desc: "학급 문고 책장을 알록달록 깔끔하게 정리해요!" },
+  { id: 5, name: "에너지 번개 지킴이", icon: "⚡", desc: "교실을 비울 때 전등과 냉난방기를 톡! 끄는 든든한 지킴이!" },
+  { id: 6, name: "초록 식물 집사", icon: "🌱", desc: "화분에 다정하게 물을 퐁퐁 주고 마른 잎을 다정하게 살펴요!" },
+  { id: 7, name: "먼지 토벌 청소 대장", icon: "🧹", desc: "빗자루와 쓰레받기를 챙기고 교실 바닥 먼지를 쓱싹 토벌해요!" },
+  { id: 8, name: "배움 학습지 나눔이", icon: "📝", desc: "선생님께서 주신 학습지를 친구들에게 소중히 전달해요!" },
+  { id: 9, name: "맑은 바람 환기 요정", icon: "🪟", desc: "창문을 활짝 열어 교실에 상쾌하고 맑은 공기를 선물해요!" },
+  { id: 10, name: "분리배출 환경 지킴이", icon: "♻️", desc: "깡통 페트병 종이를 바르게 쏙쏙 분리배출해요!" },
+  { id: 11, name: "출석·달력 알리미", icon: "📅", desc: "아침마다 날짜판을 톡 넘기고 오늘의 기분 좋은 하루를 열어요!" },
+  { id: 12, name: "칭찬 스티커 배달원", icon: "💌", desc: "친구들의 착한 마음을 찾아 칭찬나무에 사랑을 전해요!" }
 ];
 
-const CARD_THEMES = ['yellow', 'pink', 'blue', 'mint', 'purple', 'orange'];
+// 치이카와 친구들 테마 컬러 (치이카와 핑크, 하치와레 블루, 우사기 옐로우, 모몽가 퍼플, 쿠리만주 오렌지, 라코 민트)
+const CARD_THEMES = ['pink', 'blue', 'yellow', 'purple', 'orange', 'mint'];
+
+// 치이카와 친구들 얼굴 이모티콘
+const CHEEK_EMOJIS = ['( •ㅅ• )', '( ^ㅅ^ )', '( ◕ ᵜ ◕ )', '( *´꒳`* )', '( •̀ω•́ )', '( ˶•̀_•́˶ )'];
 
 // 2. 전역 상태 관리
 let state = {
   students: [],
   roles: [],
-  assignments: [], // [{ studentIndex, studentName, role }]
+  assignments: [], // [{ studentIndex, studentName, role, cheek }]
   className: "우리들의 행복한 3학년 2반",
   termName: "2025학년도 1학기",
   appsScriptUrl: ""
@@ -79,49 +83,70 @@ function saveData() {
   }
 }
 
-// 4. 사운드 효과 (Web Audio API 사용, 외부 음원 파일 불필요)
-function playSound(type = 'chime') {
+// 4. 귀여운 치이카와 뽀용 사운드 효과 (Web Audio API)
+function playSound(type = 'pop') {
   try {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!AudioContext) return;
     const ctx = new AudioContext();
 
-    if (type === 'chime') {
-      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-      notes.forEach((freq, idx) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+    if (type === 'pop') {
+      // 뽀-용! 스프링 탄성 사운드
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
 
-        gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.08);
-        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + idx * 0.08 + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.4);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(320, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(840, ctx.currentTime + 0.12);
+      osc.frequency.exponentialRampToValueAtTime(560, ctx.currentTime + 0.25);
 
-        osc.connect(gain);
-        gain.connect(ctx.destination);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
 
-        osc.start(ctx.currentTime + idx * 0.08);
-        osc.stop(ctx.currentTime + idx * 0.08 + 0.45);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.36);
+
+      // 맑은 차임벨 하모니
+      [659.25, 880, 1046.5].forEach((freq, idx) => {
+        const hOsc = ctx.createOscillator();
+        const hGain = ctx.createGain();
+        hOsc.type = 'triangle';
+        hOsc.frequency.setValueAtTime(freq, ctx.currentTime + 0.08 + idx * 0.07);
+
+        hGain.gain.setValueAtTime(0.12, ctx.currentTime + 0.08 + idx * 0.07);
+        hGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4 + idx * 0.07);
+
+        hOsc.connect(hGain);
+        hGain.connect(ctx.destination);
+
+        hOsc.start(ctx.currentTime + 0.08 + idx * 0.07);
+        hOsc.stop(ctx.currentTime + 0.45 + idx * 0.07);
       });
     } else if (type === 'click') {
+      // 뾱! 귀여운 클릭음
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, ctx.currentTime);
+      osc.frequency.setValueAtTime(950, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(450, ctx.currentTime + 0.08);
+
       gain.gain.setValueAtTime(0.15, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+
       osc.connect(gain);
       gain.connect(ctx.destination);
-      osc.start();
+      osc.start(ctx.currentTime);
       osc.stop(ctx.currentTime + 0.08);
     }
   } catch (e) {
-    // 오디오 실패 시 조용히 무시
+    // 오디오 실패 시 무시
   }
 }
 
-// 5. 알록달록 폭죽 애니메이션 (Confetti Canvas)
+// 5. 알록달록 파스텔 하트 & 별 폭죽 애니메이션 (Confetti Canvas)
 function triggerConfetti() {
   const canvas = document.getElementById('confettiCanvas');
   if (!canvas) return;
@@ -130,23 +155,22 @@ function triggerConfetti() {
   canvas.height = window.innerHeight;
 
   const particles = [];
-  const colors = ['#f59e0b', '#ec4899', '#3b82f6', '#10b981', '#8b5cf6', '#f97316', '#fbbf24'];
+  const colors = ['#ff8da1', '#ffb6c1', '#7dd3fc', '#fde047', '#d8b4fe', '#86efac', '#fdba74'];
 
-  for (let i = 0; i < 90; i++) {
+  for (let i = 0; i < 80; i++) {
     particles.push({
-      x: canvas.width / 2 + (Math.random() - 0.5) * 200,
-      y: canvas.height * 0.35,
-      size: Math.random() * 8 + 4,
+      x: canvas.width / 2 + (Math.random() - 0.5) * 220,
+      y: canvas.height * 0.32,
+      size: Math.random() * 8 + 5,
       color: colors[Math.floor(Math.random() * colors.length)],
-      vx: (Math.random() - 0.5) * 12,
-      vy: Math.random() * -10 - 4,
+      vx: (Math.random() - 0.5) * 14,
+      vy: Math.random() * -12 - 5,
       rotation: Math.random() * 360,
-      rotationSpeed: (Math.random() - 0.5) * 10,
+      rotationSpeed: (Math.random() - 0.5) * 12,
       opacity: 1
     });
   }
 
-  let animationFrame;
   function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let alive = false;
@@ -154,7 +178,7 @@ function triggerConfetti() {
     particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
-      p.vy += 0.35; // gravity
+      p.vy += 0.38; // gravity
       p.rotation += p.rotationSpeed;
       p.opacity -= 0.012;
 
@@ -165,13 +189,16 @@ function triggerConfetti() {
         ctx.rotate((p.rotation * Math.PI) / 180);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = Math.max(0, p.opacity);
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.4);
+        ctx.beginPath();
+        // 둥글둥글 귀여운 꽃잎 사각형
+        ctx.roundRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.3, 4);
+        ctx.fill();
         ctx.restore();
       }
     });
 
     if (alive) {
-      animationFrame = requestAnimationFrame(update);
+      requestAnimationFrame(update);
     } else {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
@@ -193,7 +220,7 @@ function shuffleArray(array) {
 // 7. 역할 1:1 배정 실행
 function executeAssignment() {
   if (state.students.length === 0) {
-    showToast("⚠️ 등록된 학생이 없습니다. 명단을 먼저 확인해주세요!");
+    showToast("⚠️ 등록된 친구가 없어요! 명단을 먼저 확인해주세요 (｡•́︿•̀｡)");
     return;
   }
   if (state.roles.length === 0) {
@@ -201,32 +228,34 @@ function executeAssignment() {
     return;
   }
 
-  // 셔플된 역할 목록 생성 (역할 수가 부족할 경우 순환 배정, 충분할 경우 1:1)
+  // 셔플된 역할 목록 생성
   const shuffledRoles = shuffleArray(state.roles);
   
   const newAssignments = state.students.map((studentName, idx) => {
     const assignedRole = shuffledRoles[idx % shuffledRoles.length];
+    const cheekEmoji = CHEEK_EMOJIS[idx % CHEEK_EMOJIS.length];
     return {
       studentIndex: idx + 1,
       studentName: studentName.trim(),
-      role: assignedRole
+      role: assignedRole,
+      cheek: cheekEmoji
     };
   });
 
   state.assignments = newAssignments;
   saveData();
 
-  // 효과음 및 파티클
-  playSound('chime');
+  // 뽀용 사운드 및 폭죽
+  playSound('pop');
   triggerConfetti();
 
   // 화면 렌더링
   renderCards();
   renderPrintView();
-  showToast("🎉 새로운 역할이 멋지게 배정되었습니다!");
+  showToast("🎉 뽀용! 치이카와 역할이 예쁘게 배정되었습니다! 와아~");
 }
 
-// 8. 화면 카드 렌더링
+// 8. 화면 카드 렌더링 (치이카와 몽글몽글 스타일)
 function renderCards() {
   const container = document.getElementById('assignmentGrid');
   const emptyState = document.getElementById('emptyState');
@@ -240,7 +269,7 @@ function renderCards() {
   if (!state.assignments || state.assignments.length === 0) {
     if (emptyState) emptyState.style.display = 'block';
     if (container) container.innerHTML = '';
-    if (boardMeta) boardMeta.textContent = '아직 배정된 결과가 없습니다.';
+    if (boardMeta) boardMeta.textContent = '아직 배정된 결과가 없어요.';
     if (btnReshuffle) btnReshuffle.disabled = true;
     if (btnPrint) btnPrint.disabled = true;
     if (btnCopyText) btnCopyText.disabled = true;
@@ -263,23 +292,26 @@ function renderCards() {
     const card = document.createElement('div');
     card.className = `role-card theme-${theme}`;
     card.dataset.index = index;
+    // 카드 톡-톡 순차 등장 딜레이
+    card.style.animationDelay = `${index * 0.04}s`;
 
     card.innerHTML = `
       <div class="card-header-row">
         <span class="student-badge">
-          <span>번호 ${item.studentIndex}번</span>
+          <span>🐾 ${item.studentIndex}번</span>
         </span>
-        <div class="card-actions-mini">
-          <button type="button" class="btn-mini-swap" title="다른 역할로 변경" onclick="openSwapRoleModal(${index})">
-            🔄
-          </button>
-        </div>
+        <button type="button" class="btn-mini-swap" title="다른 역할로 변경" onclick="openSwapRoleModal(${index})">
+          🔄
+        </button>
       </div>
       <div class="student-name-box">
         <h3 class="student-name">${escapeHtml(item.studentName)}</h3>
+        <span class="student-cheek">${item.cheek || '( •ㅅ• )'}</span>
       </div>
       <div class="role-assigned-box">
-        <span class="role-icon">${item.role.icon || '⭐'}</span>
+        <div class="role-icon-wrapper">
+          <span class="role-icon">${item.role.icon || '⭐'}</span>
+        </div>
         <strong class="role-label">${escapeHtml(item.role.name)}</strong>
       </div>
       <div class="role-duty-desc">
@@ -314,7 +346,7 @@ function renderPrintView() {
     card.innerHTML = `
       <div class="print-card-header">
         <span class="print-student-name">${escapeHtml(item.studentName)}</span>
-        <span class="print-num-badge">${item.studentIndex}번</span>
+        <span class="print-num-badge">🐾 ${item.studentIndex}번</span>
       </div>
       <div class="print-role-box">
         <span class="print-role-icon">${item.role.icon || '⭐'}</span>
@@ -340,13 +372,13 @@ function updateStatusCounts() {
   if (countStatusPill) {
     if (state.students.length === state.roles.length && state.students.length > 0) {
       countStatusPill.className = 'count-pill match';
-      countStatusPill.innerHTML = `<span>✨ 학생과 역할 수가 딱 맞아요! (1:1 배정 준비 완료)</span>`;
+      countStatusPill.innerHTML = `<span>✨ 1:1 배정 준비 완료! (와아~)</span>`;
     } else if (state.students.length > state.roles.length) {
       countStatusPill.className = 'count-pill mismatch';
-      countStatusPill.innerHTML = `<span>⚠️ 학생 수가 역할보다 ${state.students.length - state.roles.length}명 더 많아요 (일부 역할 중복 배정됨)</span>`;
+      countStatusPill.innerHTML = `<span>⚠️ 친구가 역할보다 ${state.students.length - state.roles.length}명 더 많아요 (일부 중복)</span>`;
     } else {
       countStatusPill.className = 'count-pill match';
-      countStatusPill.innerHTML = `<span>💡 역할이 학생보다 ${state.roles.length - state.students.length}개 더 여유있어요</span>`;
+      countStatusPill.innerHTML = `<span>💡 역할이 친구들보다 ${state.roles.length - state.students.length}개 더 여유있어요</span>`;
     }
   }
 }
@@ -364,7 +396,7 @@ window.openSwapRoleModal = function(assignmentIndex) {
   const roleSelect = document.getElementById('swapRoleSelect');
 
   if (modalDesc) {
-    modalDesc.textContent = `${currentItem.studentName} 학생(현재: ${currentItem.role.name})의 역할을 직접 선택해 주세요.`;
+    modalDesc.textContent = `${currentItem.studentName} 친구(현재: ${currentItem.role.name})의 새로운 역할을 선택해 주세요.`;
   }
 
   if (roleSelect) {
@@ -395,7 +427,7 @@ function confirmSwapRole() {
     saveData();
     renderCards();
     renderPrintView();
-    showToast(`✅ ${state.assignments[currentSwappingIndex].studentName} 학생의 역할이 변경되었습니다.`);
+    showToast(`✅ ${state.assignments[currentSwappingIndex].studentName} 친구의 역할이 변경되었습니다!`);
   }
 
   closeModal('swapRoleModal');
@@ -403,12 +435,10 @@ function confirmSwapRole() {
 }
 
 // 12. 구글 스프레드시트 (Apps Script) 연동
-// 버튼 1: [🔄 시트 불러오기]
 async function handleLoadFromSheet() {
   playSound('click');
   
   if (!state.appsScriptUrl) {
-    // URL이 설정되지 않은 경우 설정 모달의 시트 연동 탭 열기
     openSettingsModal('tab-sheet');
     showToast("ℹ️ 구글 Apps Script Web App URL을 먼저 등록해 주세요.");
     return;
@@ -436,16 +466,14 @@ async function handleLoadFromSheet() {
 
     saveData();
     updateStatusCounts();
-    showToast("🎉 구글 스프레드시트 명단 및 역할을 성공적으로 불러왔습니다!");
+    showToast("🎉 구글 스프레드시트 데이터를 성공적으로 불러왔습니다!");
   } catch (error) {
-    console.warn("Apps Script 연동 실패 (CORS 또는 URL 확인 필요):", error);
-    // 연동 실패 시 사용자 안내 및 샘플 로드 제안
+    console.warn("Apps Script 연동 실패:", error);
     openSettingsModal('tab-sheet');
     showToast("⚠️ 시트 연결 실패. Apps Script URL과 배포 설정을 확인해주세요.");
   }
 }
 
-// 버튼 2: [💾 시트에 결과 저장]
 async function handleSaveToSheet() {
   playSound('click');
 
@@ -476,9 +504,9 @@ async function handleSaveToSheet() {
       }))
     };
 
-    const response = await fetch(state.appsScriptUrl, {
+    await fetch(state.appsScriptUrl, {
       method: 'POST',
-      mode: 'no-cors', // Apps Script 리다이렉트 대응
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -499,14 +527,14 @@ function copyAssignmentsToClipboard() {
     return;
   }
 
-  let text = `[🏫 ${state.className} 1인 1역할 배정 결과]\n`;
+  let text = `[🏫 ${state.className} 치이카와 1인 1역할 배정 결과]\n`;
   text += `📅 ${state.termName}\n`;
   text += `------------------------------------\n`;
   state.assignments.forEach(a => {
     text += `${a.studentIndex}번 ${a.studentName}: ${a.role.icon || '⭐'} ${a.role.name} (${a.role.desc})\n`;
   });
   text += `------------------------------------\n`;
-  text += `우리 모두 맡은 역할을 씩씩하게 실천해요! ✨`;
+  text += `우리 모두 맡은 역할을 씩씩하게 실천해요! 와아~( ˶ˆᗜˆ˵ )`;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
@@ -535,14 +563,11 @@ function fallbackCopy(text) {
 
 // 14. 설정 및 관리 모달 제어
 function openSettingsModal(defaultTab = 'tab-students') {
-  const modal = document.getElementById('settingsModal');
   const studentsTextarea = document.getElementById('inputStudentsText');
-  const rolesContainer = document.getElementById('rolesInputList');
   const appsScriptInput = document.getElementById('inputAppsScriptUrl');
   const classNameInput = document.getElementById('inputClassName');
   const termNameInput = document.getElementById('inputTermName');
 
-  // 데이터 폼 채우기
   if (studentsTextarea) {
     studentsTextarea.value = state.students.join('\n');
   }
@@ -556,11 +581,7 @@ function openSettingsModal(defaultTab = 'tab-students') {
     termNameInput.value = state.termName || '';
   }
 
-  // 역할 목록 폼 채우기
-  if (rolesContainer) {
-    renderRolesFormList();
-  }
-
+  renderRolesFormList();
   switchTab(defaultTab);
   openModal('settingsModal');
 }
@@ -572,13 +593,13 @@ function renderRolesFormList() {
 
   state.roles.forEach((role, idx) => {
     const row = document.createElement('div');
-    row.style.cssText = 'display:flex; gap:8px; align-items:center; margin-bottom:10px; background:#f8fafc; padding:8px 12px; border-radius:10px; border:1px solid #e2e8f0;';
+    row.style.cssText = 'display:flex; gap:8px; align-items:center; margin-bottom:10px; background:#fff5f7; padding:10px 14px; border-radius:14px; border:2px solid #ffd6e0;';
     row.innerHTML = `
-      <span style="font-weight:bold; font-size:0.85rem; color:#64748b; min-width:24px;">${idx + 1}</span>
-      <input type="text" class="form-input role-icon-input" value="${escapeHtml(role.icon || '⭐')}" style="width:50px; text-align:center; padding:6px 4px;" title="이모지 아이콘">
-      <input type="text" class="form-input role-name-input" value="${escapeHtml(role.name)}" style="width:130px; font-weight:bold; padding:6px 8px;" placeholder="역할 이름">
-      <input type="text" class="form-input role-desc-input" value="${escapeHtml(role.desc)}" style="flex-grow:1; padding:6px 8px;" placeholder="역할 설명 및 임무">
-      <button type="button" style="background:#fee2e2; border:none; color:#dc2626; border-radius:6px; padding:6px 10px; cursor:pointer;" onclick="deleteRoleRow(${idx})">🗑️</button>
+      <span style="font-weight:bold; font-size:0.9rem; color:#ff6b8b; min-width:24px;">${idx + 1}</span>
+      <input type="text" class="form-input role-icon-input" value="${escapeHtml(role.icon || '⭐')}" style="width:52px; text-align:center; padding:6px 4px;" title="이모지">
+      <input type="text" class="form-input role-name-input" value="${escapeHtml(role.name)}" style="width:145px; font-weight:bold; padding:6px 10px;" placeholder="역할 이름">
+      <input type="text" class="form-input role-desc-input" value="${escapeHtml(role.desc)}" style="flex-grow:1; padding:6px 10px;" placeholder="역할 설명 및 임무">
+      <button type="button" style="background:#fee2e2; border:none; color:#dc2626; border-radius:8px; padding:6px 10px; cursor:pointer;" onclick="deleteRoleRow(${idx})">🗑️</button>
     `;
     rolesContainer.appendChild(row);
   });
@@ -594,7 +615,7 @@ window.addNewRoleRow = function() {
     id: Date.now(),
     name: "새 학급 역할",
     icon: "🌟",
-    desc: "학급 친구들을 돕고 솔선수범해요."
+    desc: "친구들을 다정하게 돕고 솔선수범해요 와아~!"
   });
   renderRolesFormList();
 };
@@ -605,14 +626,12 @@ function saveSettings() {
   const classNameInput = document.getElementById('inputClassName');
   const termNameInput = document.getElementById('inputTermName');
 
-  // 학생 명단 저장
   if (studentsTextarea) {
     const rawLines = studentsTextarea.value.split('\n');
     const cleaned = rawLines.map(s => s.trim()).filter(s => s.length > 0);
     state.students = cleaned;
   }
 
-  // 역할 목록 저장
   const rolesContainer = document.getElementById('rolesInputList');
   if (rolesContainer) {
     const rows = rolesContainer.children;
@@ -629,7 +648,6 @@ function saveSettings() {
     state.roles = newRoles;
   }
 
-  // 기본 환경설정
   if (appsScriptInput) state.appsScriptUrl = appsScriptInput.value.trim();
   if (classNameInput) state.className = classNameInput.value.trim() || "우리 반";
   if (termNameInput) state.termName = termNameInput.value.trim() || "1학기";
@@ -638,7 +656,6 @@ function saveSettings() {
   updateStatusCounts();
   renderPrintView();
 
-  // 헤더 태그 갱신
   const schoolTag = document.getElementById('headerClassTitle');
   if (schoolTag) schoolTag.textContent = state.className;
 
@@ -647,7 +664,7 @@ function saveSettings() {
 }
 
 function resetToDefaultData() {
-  if (confirm("학생 12명과 기본 역할 12개로 초기화하시겠습니까?")) {
+  if (confirm("치이카와 12명 학생과 12개 기본 역할로 초기화하시겠습니까?")) {
     state.students = [...DEFAULT_STUDENTS];
     state.roles = [...DEFAULT_ROLES];
     state.assignments = [];
@@ -656,7 +673,7 @@ function resetToDefaultData() {
     renderPrintView();
     updateStatusCounts();
     closeModal('settingsModal');
-    showToast("🔄 기본 예시 데이터(12명, 12개 역할)로 초기화되었습니다.");
+    showToast("🔄 치이카와 기본 예시 데이터로 초기화되었습니다.");
   }
 }
 
@@ -714,7 +731,6 @@ function escapeHtml(str) {
 document.addEventListener('DOMContentLoaded', () => {
   loadSavedData();
 
-  // 헤더 학급 타이틀 반영
   const headerClassTitle = document.getElementById('headerClassTitle');
   if (headerClassTitle) headerClassTitle.textContent = state.className;
 
@@ -799,7 +815,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 첫 화면 렌더링
   if (state.assignments.length === 0) {
-    // 사용자가 첫 방문 시에도 직관적으로 볼 수 있도록 바로 기본 12명 12역할 배정
     executeAssignment();
   } else {
     renderCards();

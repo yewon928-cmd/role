@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>학급 1인 1역할 배정 도우미</title>
-    <meta name="description" content="초등학생 눈높이에 맞춘 아기자기하고 귀여운 학급 1인 1역할 랜덤 배정 및 교실 게시판용 A4 인쇄 웹 애플리케이션" />
-    <meta property="og:title" content="학급 1인 1역할 배정 도우미" />
-    <meta property="og:description" content="초등학생 눈높이에 맞춘 아기자기하고 귀여운 학급 1인 1역할 랜덤 배정 및 교실 게시판용 A4 인쇄 웹 애플리케이션" />
+    <title>치이카와 학급 1인 1역할 배정판</title>
+    <meta name="description" content="치이카와 먼작귀 스타일로 꾸민 사랑스럽고 귀여운 학급 1인 1역할 배정 및 교실 게시판용 A4 인쇄 웹 애플리케이션" />
+    <meta property="og:title" content="치이카와 학급 1인 1역할 배정판" />
+    <meta property="og:description" content="치이카와 먼작귀 스타일로 꾸민 사랑스럽고 귀여운 학급 1인 1역할 배정 및 교실 게시판용 A4 인쇄 웹 애플리케이션" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- 귀여운 폰트 및 파스텔 스타일시트 연결 -->
+    <!-- 몽글몽글 치이카와 파스텔 스타일시트 -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- 축하 폭죽 애니메이션용 투명 캔버스 -->
+    <!-- 축하 폭죽 캔버스 -->
     <canvas id="confettiCanvas"></canvas>
 
     <!-- 메인 웹 애플리케이션 영역 -->
@@ -22,9 +22,9 @@
       <!-- 상단 내비게이션 및 구글 스프레드시트 연동 버튼 자리 -->
       <header class="top-nav">
         <div class="school-tag">
-          <span style="font-size: 1.25rem;">🏫</span>
+          <span class="paw-icon">🐾</span>
           <span id="headerClassTitle">우리들의 행복한 3학년 2반</span>
-          <span class="badge">1인 1역할</span>
+          <span class="badge">🌸 1인 1역할</span>
         </div>
 
         <div class="sheet-actions">
@@ -40,22 +40,99 @@
         </div>
       </header>
 
-      <!-- 헤더 타이틀 영역 -->
+      <!-- 치이카와 시그니처 히어로 헤더 -->
       <section class="hero-header">
-        <div class="title-badge">🌱 다 함께 가꾸는 우리 교실</div>
-        <h1 class="main-title">✨ 알록달록 1인 1역할 배정판 ✨</h1>
-        <p class="sub-title">모두가 주인공이 되어 책임을 다하고 서로 돕는 따뜻한 학급을 만들어요!</p>
+        <!-- 치이카와 & 하치와레 & 우사기 귀여운 캐릭터 배너 -->
+        <div class="chiikawa-friends-bar">
+          <!-- 치이카와 SVG -->
+          <div class="mascot-avatar mascot-chiikawa" title="치이카와">
+            <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 귀 -->
+              <circle cx="28" cy="24" r="14" fill="#ffffff" stroke="#ffccd5" stroke-width="6"/>
+              <circle cx="72" cy="24" r="14" fill="#ffffff" stroke="#ffccd5" stroke-width="6"/>
+              <!-- 얼굴 -->
+              <ellipse cx="50" cy="56" rx="42" ry="36" fill="#ffffff" stroke="#ffccd5" stroke-width="6"/>
+              <!-- 눈 -->
+              <ellipse cx="36" cy="52" rx="4.5" ry="6.5" fill="#3b2825"/>
+              <ellipse cx="64" cy="52" rx="4.5" ry="6.5" fill="#3b2825"/>
+              <circle cx="37" cy="49" r="1.8" fill="#ffffff"/>
+              <circle cx="65" cy="49" r="1.8" fill="#ffffff"/>
+              <!-- 코/입 -->
+              <ellipse cx="50" cy="59" rx="2" ry="1.5" fill="#3b2825"/>
+              <path d="M46 63 Q50 67 54 63" stroke="#3b2825" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <!-- 분홍 볼터치 -->
+              <ellipse cx="27" cy="62" rx="6" ry="4" fill="#ffb6c1" opacity="0.85"/>
+              <ellipse cx="73" cy="62" rx="6" ry="4" fill="#ffb6c1" opacity="0.85"/>
+            </svg>
+          </div>
+
+          <!-- 하치와레 SVG -->
+          <div class="mascot-avatar mascot-hachiware" title="하치와레">
+            <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 귀 -->
+              <polygon points="18,36 32,12 44,32" fill="#38bdf8" stroke="#0284c7" stroke-width="4"/>
+              <polygon points="56,32 68,12 82,36" fill="#38bdf8" stroke="#0284c7" stroke-width="4"/>
+              <!-- 얼굴 -->
+              <ellipse cx="50" cy="56" rx="42" ry="36" fill="#ffffff" stroke="#bae6fd" stroke-width="6"/>
+              <!-- 파란 앞머리 가르마 -->
+              <path d="M14 46 C24 28, 44 26, 50 38 C56 26, 76 28, 86 46 C75 34, 58 32, 50 42 C42 32, 25 34, 14 46 Z" fill="#38bdf8"/>
+              <!-- 눈 -->
+              <ellipse cx="36" cy="54" rx="4.5" ry="6.5" fill="#3b2825"/>
+              <ellipse cx="64" cy="54" rx="4.5" ry="6.5" fill="#3b2825"/>
+              <circle cx="37" cy="51" r="1.8" fill="#ffffff"/>
+              <circle cx="65" cy="51" r="1.8" fill="#ffffff"/>
+              <!-- 코/입 -->
+              <ellipse cx="50" cy="61" rx="2" ry="1.5" fill="#3b2825"/>
+              <path d="M46 64 Q50 68 54 64" stroke="#3b2825" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <!-- 분홍 볼터치 -->
+              <ellipse cx="27" cy="64" rx="6" ry="4" fill="#ffb6c1" opacity="0.85"/>
+              <ellipse cx="73" cy="64" rx="6" ry="4" fill="#ffb6c1" opacity="0.85"/>
+            </svg>
+          </div>
+
+          <!-- 우사기 SVG -->
+          <div class="mascot-avatar mascot-usagi" title="우사기">
+            <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 긴 토끼 귀 -->
+              <ellipse cx="32" cy="18" rx="8" ry="20" fill="#fef08a" stroke="#eab308" stroke-width="4"/>
+              <ellipse cx="68" cy="18" rx="8" ry="20" fill="#fef08a" stroke="#eab308" stroke-width="4"/>
+              <!-- 얼굴 -->
+              <ellipse cx="50" cy="58" rx="42" ry="36" fill="#fef9c3" stroke="#fde047" stroke-width="6"/>
+              <!-- 눈 (동글동글) -->
+              <circle cx="35" cy="54" r="5.5" fill="#3b2825"/>
+              <circle cx="65" cy="54" r="5.5" fill="#3b2825"/>
+              <circle cx="37" cy="52" r="1.8" fill="#ffffff"/>
+              <circle cx="67" cy="52" r="1.8" fill="#ffffff"/>
+              <!-- 입 (얏하- 벌린 입) -->
+              <path d="M45 64 Q50 72 55 64 Z" fill="#ef4444" stroke="#3b2825" stroke-width="2"/>
+              <!-- 핑크 볼터치 -->
+              <ellipse cx="25" cy="65" rx="6" ry="4" fill="#f472b6" opacity="0.85"/>
+              <ellipse cx="75" cy="65" rx="6" ry="4" fill="#f472b6" opacity="0.85"/>
+            </svg>
+          </div>
+
+          <!-- 말풍선 -->
+          <div class="mascot-speech-bubble">
+            <span>"와아~! 오늘도 다 함께 씩씩하게!"</span>
+            <span style="font-size: 1.35rem;">( ˶ˆᗜˆ˵ )</span>
+          </div>
+        </div>
+
+        <h1 class="main-title">🐾 먼가 작고 귀여운 1인 1역할 배정판 🐾</h1>
+        <p class="sub-title">
+          모두가 소중한 우리 반! <span class="highlight">나만의 멋진 역할</span>을 맡아 서로 돕고 배려해요!
+        </p>
       </section>
 
-      <!-- 메인 컨트롤 패널 -->
+      <!-- 메인 컨트롤 패널 (마시멜로 젤리 푸시 버튼) -->
       <section class="control-panel">
         <div class="action-row">
           <div class="primary-actions">
             <button type="button" class="btn-main-action" id="btnAssign">
-              <span>🎲</span> 역할 배정하기
+              <span class="dice-icon">🎲</span> 뽀용! 역할 배정하기
             </button>
             <button type="button" class="btn-sub-action btn-shuffle" id="btnReshuffle">
-              <span>🔀</span> 다시 섞기
+              <span>🔀</span> 슉슉! 다시 섞기
             </button>
           </div>
 
@@ -75,23 +152,23 @@
         <!-- 등록 현황 카운트 & 준비 상태 바 -->
         <div class="status-bar">
           <div class="status-counts">
-            <span class="count-pill">🧑‍🤝‍🧑 학생 <strong id="studentCount" style="color: #6366f1; margin: 0 3px;">12</strong>명</span>
-            <span class="count-pill">🎯 역할 <strong id="roleCount" style="color: #ec4899; margin: 0 3px;">12</strong>개</span>
+            <span class="count-pill">🧑‍🤝‍🧑 친구들 <strong id="studentCount" style="color: #ff6b8b; margin: 0 4px;">12</strong>명</span>
+            <span class="count-pill">🎯 멋진 역할 <strong id="roleCount" style="color: #0284c7; margin: 0 4px;">12</strong>개</span>
             <span class="count-pill match" id="countStatusPill">
-              <span>✨ 1:1 배정 준비 완료!</span>
+              <span>✨ 1:1 배정 준비 완료! (와아~)</span>
             </span>
           </div>
           <div class="status-note">
-            ★ 서로를 배려하는 멋진 친구가 되어요!
+            ★ 토벌도 청소도 사이좋게 챡챡! 얏하-! 🐰
           </div>
         </div>
       </section>
 
-      <!-- 역할 배정 결과 카드 그리드 -->
+      <!-- 치이카와 카드 그리드 영역 -->
       <section class="board-section">
         <div class="board-header">
           <h2 class="board-title">
-            <span>🌈</span> 오늘의 역할 배정 결과
+            <span>🌸</span> 오늘의 치이카와 역할 배정표
           </h2>
           <span class="board-meta" id="boardMeta">준비 완료</span>
         </div>
@@ -104,8 +181,8 @@
         <!-- 초기 배정 전 상태 안내 -->
         <div class="empty-state" id="emptyState" style="display: none;">
           <div class="empty-icon">🎲</div>
-          <h3 class="empty-title">아직 배정된 역할이 없습니다</h3>
-          <p class="empty-desc">상단의 <strong>[🎲 역할 배정하기]</strong> 버튼을 누르면 친구들에게 무작위로 멋진 역할이 선물처럼 주어져요!</p>
+          <h3 class="empty-title">아직 배정된 역할이 없어요!</h3>
+          <p class="empty-desc">위의 <strong>[🎲 뽀용! 역할 배정하기]</strong> 버튼을 꾹 누르면 친구들에게 무작위로 귀여운 역할이 배정돼요!</p>
         </div>
       </section>
     </div>
@@ -120,7 +197,7 @@
           <span id="printMetaDate">2025학년도 1학기</span>
         </div>
         <h1 class="print-title" id="printClassTitle">우리 반 1인 1역할 안내판</h1>
-        <p class="print-subtitle">"내가 맡은 역할을 소중히 여기며, 다정한 마음으로 서로를 도와요!"</p>
+        <p class="print-subtitle">"내가 맡은 역할을 소중히 여기며, 다정한 마음으로 서로를 도와요! (와아~)"</p>
       </header>
 
       <div class="print-grid" id="printGrid">
@@ -175,7 +252,7 @@
             <div class="form-group">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <label class="form-label" style="margin: 0;">학급 역할 목록 (아이콘 / 이름 / 임무 설명)</label>
-                <button type="button" class="btn-sheet" style="font-size: 0.8rem; padding: 4px 10px;" onclick="addNewRoleRow()">
+                <button type="button" class="btn-sheet" style="font-size: 0.85rem; padding: 4px 12px;" onclick="addNewRoleRow()">
                   + 역할 추가
                 </button>
               </div>
@@ -201,7 +278,6 @@
               <div class="guide-code">
 function doGet(e) {<br />
 &nbsp;&nbsp;var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();<br />
-&nbsp;&nbsp;// A열: 학생이름, B열: 역할이름, C열: 역할설명<br />
 &nbsp;&nbsp;var data = sheet.getDataRange().getValues();<br />
 &nbsp;&nbsp;return ContentService.createTextOutput(JSON.stringify({result: "success"})).setMimeType(ContentService.MimeType.JSON);<br />
 }<br />
@@ -216,11 +292,11 @@ function doPost(e) {<br />
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn-sheet" id="btnResetDefaults" style="color: #64748b; margin-right: auto;">
+          <button type="button" class="btn-sheet" id="btnResetDefaults" style="color: #8c7873; margin-right: auto;">
             기본값으로 초기화
           </button>
           <button type="button" class="btn-sheet btn-close-modal">취소</button>
-          <button type="button" class="btn-main-action" id="btnSaveSettings" style="font-size: 0.95rem; padding: 10px 22px;">
+          <button type="button" class="btn-main-action" id="btnSaveSettings" style="font-size: 1.05rem; padding: 10px 24px;">
             저장하기
           </button>
         </div>
@@ -237,8 +313,8 @@ function doPost(e) {<br />
           <button type="button" class="btn-close-modal" aria-label="닫기">✕</button>
         </div>
         <div class="modal-body">
-          <p id="swapModalDesc" style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
-            학생의 새로운 역할을 선택해 주세요.
+          <p id="swapModalDesc" style="font-size: 0.95rem; color: #5c4449; margin-bottom: 14px;">
+            친구의 새로운 역할을 선택해 주세요.
           </p>
           <div class="form-group">
             <select class="form-input" id="swapRoleSelect" style="padding: 10px;">
@@ -248,7 +324,7 @@ function doPost(e) {<br />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn-sheet btn-close-modal">취소</button>
-          <button type="button" class="btn-main-action" id="btnConfirmSwap" style="font-size: 0.95rem; padding: 8px 18px;">
+          <button type="button" class="btn-main-action" id="btnConfirmSwap" style="font-size: 1rem; padding: 8px 20px;">
             변경 적용
           </button>
         </div>
