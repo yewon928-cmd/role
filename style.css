@@ -1,59 +1,64 @@
 /* ========================================================
-   학급 1인 1역할 배정 도우미 - style.css
-   💖 치이카와(먼작귀) 감성 몽글몽글 러블리 파스텔 디자인 💖
+   6학년 4반 1인 1역할 배정 도우미 - style.css
+   치이카와 감성의 깔끔하고 세련된 파스텔 디자인
    ======================================================== */
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Gaegu:wght@700&display=swap');
 
 :root {
   --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  --font-title: 'Jua', 'Pretendard', sans-serif;
+  --font-title: 'Jua', 'Gowun Dodum', sans-serif;
   --font-cute: 'Gaegu', cursive, sans-serif;
 
-  /* 🌸 치이카와 시그니처 파스텔 컬러 팔레트 */
-  --chiikawa-pink: #ffb6c1;
-  --chiikawa-pink-light: #fff0f3;
-  --chiikawa-pink-dark: #ff6b8b;
-  --chiikawa-pink-deep: #e0486a;
+  /* 🌸 치이카와 정돈된 클린 파스텔 팔레트 */
+  --chiikawa-pink: #ff8da1;
+  --chiikawa-pink-bg: #fff5f7;
+  --chiikawa-pink-border: #ffd6df;
+  --chiikawa-pink-text: #e11d48;
 
-  --hachiware-blue: #bae6fd;
-  --hachiware-blue-light: #f0f9ff;
-  --hachiware-blue-dark: #38bdf8;
-  --hachiware-blue-deep: #0284c7;
+  --hachiware-blue: #38bdf8;
+  --hachiware-blue-bg: #f0f9ff;
+  --hachiware-blue-border: #bae6fd;
+  --hachiware-blue-text: #0284c7;
 
-  --usagi-yellow: #fef08a;
-  --usagi-yellow-light: #fefce8;
-  --usagi-yellow-dark: #facc15;
-  --usagi-yellow-deep: #ca8a04;
+  --usagi-yellow: #facc15;
+  --usagi-yellow-bg: #fefce8;
+  --usagi-yellow-border: #fef08a;
+  --usagi-yellow-text: #a16207;
 
-  --momonga-purple: #e9d5ff;
-  --momonga-purple-light: #faf5ff;
-  --momonga-purple-dark: #c084fc;
+  --momonga-purple: #c084fc;
+  --momonga-purple-bg: #faf5ff;
+  --momonga-purple-border: #e9d5ff;
+  --momonga-purple-text: #7e22ce;
 
-  --kurimanju-orange: #fed7aa;
-  --kurimanju-orange-light: #fff7ed;
-  --kurimanju-orange-dark: #fb923c;
+  --kurimanju-orange: #fb923c;
+  --kurimanju-orange-bg: #fff7ed;
+  --kurimanju-orange-border: #fed7aa;
+  --kurimanju-orange-text: #c2410c;
 
-  --rakko-mint: #bbf7d0;
-  --rakko-mint-light: #f0fdf4;
-  --rakko-mint-dark: #4ade80;
+  --rakko-mint: #34d399;
+  --rakko-mint-bg: #f0fdf4;
+  --rakko-mint-border: #bbf7d0;
+  --rakko-mint-text: #15803d;
 
-  /* 몽글몽글 배경 및 기본 톤 */
-  --bg-cream: #fffdf9;
-  --bg-dot: #f3eae0;
-  --text-main: #332b2b;
-  --text-sub: #786b6b;
-  --card-white: #ffffff;
+  /* 클린 배경 및 베이스 */
+  --bg-main: #fbf9f6;
+  --bg-pattern-dot: #e8e2d8;
+  --text-dark: #1e293b;
+  --text-medium: #475569;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
 
-  --radius-xs: 10px;
-  --radius-sm: 16px;
-  --radius-md: 24px;
-  --radius-lg: 32px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
   --radius-pill: 9999px;
 
-  --shadow-bubbly: 0 10px 24px rgba(230, 160, 180, 0.16);
-  --shadow-hover: 0 16px 36px rgba(230, 160, 180, 0.28);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 18px rgba(100, 116, 139, 0.06);
+  --shadow-hover: 0 10px 24px rgba(100, 116, 139, 0.12);
 }
 
 * {
@@ -64,18 +69,19 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--bg-cream);
-  color: var(--text-main);
+  background-color: var(--bg-main);
+  color: var(--text-dark);
   line-height: 1.5;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  /* 몽글몽글 귀여운 도트 패턴 배경 */
+  /* 은은하고 정돈된 미세 도트 배경 */
   background-image: 
-    radial-gradient(var(--bg-dot) 2px, transparent 2px),
-    radial-gradient(var(--bg-dot) 2px, var(--bg-cream) 2px);
-  background-size: 28px 28px;
-  background-position: 0 0, 14px 14px;
+    radial-gradient(var(--bg-pattern-dot) 1.2px, transparent 1.2px),
+    radial-gradient(var(--bg-pattern-dot) 1.2px, var(--bg-main) 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 반짝이 폭죽 캔버스 */
@@ -91,13 +97,13 @@ body {
 
 /* 전체 컨테이너 */
 .app-container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 24px 20px 80px;
 }
 
 /* ========================================================
-   상단 내비게이션 바 & 구글 시트 연동 버튼
+   상단 내비게이션 바 & 깔끔한 시트 연동 버튼
    ======================================================== */
 .top-nav {
   display: flex;
@@ -106,12 +112,11 @@ body {
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 24px;
-  padding: 12px 22px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  background: #ffffff;
   border-radius: var(--radius-pill);
-  border: 3px solid #ffedf1;
-  box-shadow: var(--shadow-bubbly);
+  border: 1.5px solid #f1e9e3;
+  box-shadow: var(--shadow-sm);
 }
 
 .school-tag {
@@ -120,371 +125,307 @@ body {
   gap: 8px;
   font-family: var(--font-title);
   font-size: 1.15rem;
-  color: #4a3b32;
+  color: #334155;
 }
 
 .school-tag .paw-icon {
-  font-size: 1.3rem;
-  animation: pawWiggle 2s infinite ease-in-out;
-}
-
-@keyframes pawWiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-10deg); }
-  75% { transform: rotate(10deg); }
+  font-size: 1.15rem;
 }
 
 .school-tag span.badge {
-  background: var(--chiikawa-pink-light);
-  color: var(--chiikawa-pink-deep);
-  padding: 4px 14px;
+  background: var(--chiikawa-pink-bg);
+  color: var(--chiikawa-pink-text);
+  padding: 3px 12px;
   border-radius: var(--radius-pill);
-  font-size: 0.88rem;
-  font-weight: 800;
-  border: 2px solid #ffd6e0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid var(--chiikawa-pink-border);
 }
 
 .sheet-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-/* 마카롱 마시멜로 버튼 스타일 */
 .btn-sheet {
   background: #ffffff;
-  border: 2.5px solid #ffe4ea;
-  color: #5c4449;
-  font-family: var(--font-title);
-  font-size: 0.92rem;
-  padding: 8px 16px;
+  border: 1.5px solid #e2e8f0;
+  color: #475569;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 7px 15px;
   border-radius: var(--radius-pill);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 0 #ffd1dc;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .btn-sheet:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 #ffd1dc;
-  border-color: #ffb6c1;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 .btn-sheet:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #ffd1dc;
+  transform: translateY(1px);
 }
 
 .btn-sheet.load-btn:hover {
   background: #f0fdf4;
-  color: #15803d;
+  color: #166534;
   border-color: #86efac;
-  box-shadow: 0 6px 0 #bbf7d0;
 }
 
 .btn-sheet.save-btn:hover {
   background: #f0f9ff;
   color: #0369a1;
   border-color: #7dd3fc;
-  box-shadow: 0 6px 0 #bae6fd;
 }
 
 .btn-sheet.config-btn {
   background: #fff5f7;
   color: #be185d;
+  border-color: #fbcfe8;
+}
+
+.btn-sheet.config-btn:hover {
+  background: #fce7f3;
 }
 
 /* ========================================================
-   치이카와 시그니처 히어로 헤더 & 캐릭터 일러스트 배너
+   치이카와 히어로 헤더 (세련되고 깔끔한 레이아웃)
    ======================================================== */
 .hero-header {
   text-align: center;
-  margin: 10px 0 32px;
+  margin: 12px 0 28px;
   position: relative;
 }
 
-/* 치이카와 친구들 캐릭터 일러스트 바 */
+/* 앙증맞은 캐릭터 미니 칩 */
 .chiikawa-friends-bar {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   background: #ffffff;
-  padding: 10px 24px;
+  padding: 6px 18px 6px 12px;
   border-radius: var(--radius-pill);
-  border: 3px solid #ffd6e0;
-  box-shadow: var(--shadow-bubbly);
-  margin-bottom: 16px;
+  border: 1.5px solid #ffe4ea;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
 }
 
-.mascot-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.mascot-avatar:hover {
-  transform: scale(1.2) translateY(-4px);
-}
-
-/* 치이카와 (분홍 볼터치 곰돌이) */
-.mascot-chiikawa {
-  background: #ffffff;
-  border: 3px solid #ffb6c1;
-  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.4);
-}
-
-/* 하치와레 (파란 귀 고양이) */
-.mascot-hachiware {
-  background: #ffffff;
-  border: 3px solid #7dd3fc;
-  box-shadow: 0 4px 10px rgba(125, 211, 252, 0.4);
-}
-
-/* 우사기 (노란 토끼) */
-.mascot-usagi {
-  background: #ffffff;
-  border: 3px solid #fde047;
-  box-shadow: 0 4px 10px rgba(253, 224, 71, 0.4);
-}
-
-.mascot-speech-bubble {
-  font-family: var(--font-cute);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #ff6b8b;
+.mascot-avatar-group {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
+.mascot-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1.5px solid #ffd6df;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mascot-avatar:hover {
+  transform: scale(1.15) translateY(-2px);
+}
+
+.mascot-speech-bubble {
+  font-family: var(--font-cute);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ff6b87;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.2px;
+}
+
 .main-title {
   font-family: var(--font-title);
-  font-size: 2.85rem;
-  color: #3b2c28;
+  font-size: 2.5rem;
+  color: #0f172a;
   letter-spacing: -0.5px;
-  margin-bottom: 8px;
-  text-shadow: 3px 3px 0px #ffe4ea, 0 4px 12px rgba(255, 182, 193, 0.3);
+  margin-bottom: 6px;
+}
+
+.main-title .class-name {
+  color: #ff6b87;
 }
 
 .sub-title {
-  font-size: 1.15rem;
-  font-family: var(--font-main);
-  color: #7a6862;
-  font-weight: 600;
-}
-
-.sub-title .highlight {
-  background: #fff3bf;
-  padding: 2px 8px;
-  border-radius: 8px;
-  color: #b45309;
+  font-size: 1.05rem;
+  color: #64748b;
+  font-weight: 500;
 }
 
 /* ========================================================
-   메인 컨트롤 패널 (폭신폭신 마시멜로 3D 버튼)
+   메인 컨트롤 패널 (심플 & 정돈된 액션 버튼)
    ======================================================== */
 .control-panel {
   background: #ffffff;
-  padding: 24px 28px;
+  padding: 20px 24px;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-bubbly);
-  margin-bottom: 34px;
-  border: 3.5px solid #ffe8ee;
-  position: relative;
-}
-
-/* 구름 귀 장식 */
-.control-panel::before {
-  content: '✨ 와아~! 오늘도 힘내자! ✨';
-  position: absolute;
-  top: -16px;
-  right: 36px;
-  background: #fff1f2;
-  color: #e11d48;
-  border: 2px solid #fecdd3;
-  padding: 3px 14px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-cute);
-  font-size: 1.1rem;
-  font-weight: 700;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 30px;
+  border: 1.5px solid #f1e9e3;
 }
 
 .action-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .primary-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .secondary-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-/* 치이카와 메인 배정 버튼: 몽글몽글 핑크 젤리 푸시 */
+/* 메인 배정 버튼: 산뜻하고 깔끔한 파스텔 핑크 */
 .btn-main-action {
   font-family: var(--font-title);
-  font-size: 1.45rem;
-  padding: 15px 36px;
+  font-size: 1.25rem;
+  padding: 13px 30px;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: linear-gradient(135deg, #ff8da1 0%, #ff6b8b 50%, #f43f5e 100%);
+  background: linear-gradient(135deg, #ff7e98 0%, #ff6b87 100%);
   color: #ffffff;
-  box-shadow: 0 8px 0 #be123c, 0 16px 24px rgba(244, 63, 94, 0.35);
-  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.18);
-  position: relative;
+  box-shadow: 0 6px 16px rgba(255, 107, 135, 0.28);
 }
 
 .btn-main-action:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 0 #be123c, 0 20px 28px rgba(244, 63, 94, 0.45);
-  filter: brightness(1.04);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 135, 0.38);
+  filter: brightness(1.03);
 }
 
 .btn-main-action:active {
-  transform: translateY(6px);
-  box-shadow: 0 2px 0 #be123c, 0 4px 10px rgba(244, 63, 94, 0.25);
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(255, 107, 135, 0.2);
 }
 
 .btn-main-action .dice-icon {
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   display: inline-block;
-  animation: diceRoll 2.5s infinite ease-in-out;
+  transition: transform 0.3s ease;
 }
 
-@keyframes diceRoll {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(20deg) scale(1.15); }
+.btn-main-action:hover .dice-icon {
+  transform: rotate(20deg) scale(1.1);
 }
 
-/* 서브 액션 버튼들 (하치와레 블루, 라코 민트, 우사기 옐로우) */
+/* 서브 액션 버튼들 */
 .btn-sub-action {
-  font-family: var(--font-title);
-  font-size: 1.05rem;
-  padding: 12px 20px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 11px 18px;
   border-radius: var(--radius-pill);
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.btn-sub-action:hover {
+  transform: translateY(-1.5px);
+}
+
+.btn-sub-action:active {
+  transform: translateY(1px);
+}
+
 .btn-shuffle {
-  background: var(--hachiware-blue-light);
-  color: var(--hachiware-blue-deep);
-  border-color: #bae6fd;
-  box-shadow: 0 4px 0 #7dd3fc;
+  background: var(--hachiware-blue-bg);
+  color: var(--hachiware-blue-text);
+  border-color: var(--hachiware-blue-border);
 }
 
 .btn-shuffle:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 0 #7dd3fc;
   background: #e0f2fe;
-}
-
-.btn-shuffle:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #7dd3fc;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
 }
 
 .btn-print {
-  background: var(--rakko-mint-light);
-  color: #15803d;
-  border-color: #bbf7d0;
-  box-shadow: 0 4px 0 #86efac;
+  background: var(--rakko-mint-bg);
+  color: var(--rakko-mint-text);
+  border-color: var(--rakko-mint-border);
 }
 
 .btn-print:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 0 #86efac;
   background: #dcfce7;
-}
-
-.btn-print:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #86efac;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.15);
 }
 
 .btn-copy {
-  background: var(--usagi-yellow-light);
-  color: #854d0e;
-  border-color: #fef08a;
-  box-shadow: 0 4px 0 #fde047;
+  background: #f8fafc;
+  color: #334155;
+  border-color: #e2e8f0;
 }
 
 .btn-copy:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 0 #fde047;
-  background: #fef9c3;
-}
-
-.btn-copy:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #fde047;
+  background: #f1f5f9;
 }
 
 .btn-manage {
-  background: var(--momonga-purple-light);
-  color: #6b21a8;
-  border-color: #e9d5ff;
-  box-shadow: 0 4px 0 #d8b4fe;
+  background: var(--momonga-purple-bg);
+  color: var(--momonga-purple-text);
+  border-color: var(--momonga-purple-border);
 }
 
 .btn-manage:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 0 #d8b4fe;
   background: #f3e8ff;
+  box-shadow: 0 4px 12px rgba(192, 132, 252, 0.15);
 }
 
-.btn-manage:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #d8b4fe;
-}
-
-/* 상태 바 */
+/* 상태 요약 바 */
 .status-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 2.5px dashed #ffd6e0;
-  font-size: 0.95rem;
-  color: var(--text-sub);
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1.5px dashed #f1e9e3;
+  font-size: 0.92rem;
+  color: var(--text-muted);
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .status-counts {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -492,11 +433,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 800;
-  background: #ffffff;
-  padding: 6px 14px;
+  font-weight: 700;
+  background: #f8fafc;
+  padding: 4px 12px;
   border-radius: var(--radius-pill);
-  border: 2px solid #ffe4ea;
+  border: 1px solid #e2e8f0;
 }
 
 .count-pill.match {
@@ -513,13 +454,13 @@ body {
 
 .status-note {
   font-family: var(--font-cute);
-  font-size: 1.55rem;
-  color: #ff6b8b;
+  font-size: 1.35rem;
+  color: #ff6b87;
   font-weight: 700;
 }
 
 /* ========================================================
-   치이카와 몽글몽글 카드 그리드 영역
+   치이카와 카드 그리드 (더욱 깔끔하고 세련된 카드 레이아웃)
    ======================================================== */
 .board-section {
   position: relative;
@@ -529,186 +470,171 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  padding: 0 6px;
+  margin-bottom: 20px;
+  padding: 0 4px;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .board-title {
   font-family: var(--font-title);
-  font-size: 1.85rem;
-  color: #3b2c28;
+  font-size: 1.65rem;
+  color: #0f172a;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .board-meta {
-  font-size: 0.94rem;
-  color: #8c7873;
-  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-/* 치이카와 카드 본체 */
+/* 카드 본체: 깔끔한 화이트 + 1.5px 소프트 파스텔 테두리 */
 .role-card {
   background: #ffffff;
-  border-radius: var(--radius-lg);
-  border: 3px solid var(--card-border, #ffd6e0);
-  padding: 24px 20px 20px;
-  box-shadow: 0 10px 24px rgba(240, 180, 195, 0.18), 0 4px 0 var(--card-shadow, #ffd6e0);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--card-border, #e2e8f0);
+  padding: 20px 18px 18px;
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   overflow: hidden;
-  animation: chiikawaBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation: cardFadeUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-@keyframes chiikawaBounce {
+@keyframes cardFadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.9);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 .role-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 18px 36px rgba(240, 180, 195, 0.3), 0 6px 0 var(--card-shadow, #ffd6e0);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--card-accent);
 }
 
-/* 상단 앙증맞은 치이카와 둥근 귀 / 스티커 데코 */
+/* 깔끔한 상단 파스텔 악센트 바 */
 .role-card::before {
   content: '';
   position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 96px;
-  height: 18px;
-  background: var(--card-badge-bg, #ffccd5);
-  border-radius: var(--radius-pill);
-  border: 2px dashed #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
-  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--card-accent, #cbd5e1);
 }
 
-/* 치이카와 캐릭터별 6색 파스텔 테마 */
+/* 6가지 세련된 파스텔 테마 */
 .theme-pink {
-  /* 치이카와 핑크 */
-  --card-border: #ffccd5;
-  --card-shadow: #ffb3c1;
-  --card-badge-bg: #ffe4e9;
+  --card-border: #ffd6df;
+  --card-badge-bg: #fff5f7;
   --card-tag-text: #e11d48;
   --card-halo: #fff0f3;
-  --card-accent: #ff6b8b;
+  --card-accent: #ff7e98;
 }
 
 .theme-blue {
-  /* 하치와레 블루 */
   --card-border: #bae6fd;
-  --card-shadow: #7dd3fc;
-  --card-badge-bg: #e0f2fe;
+  --card-badge-bg: #f0f9ff;
   --card-tag-text: #0284c7;
   --card-halo: #f0f9ff;
   --card-accent: #38bdf8;
 }
 
 .theme-yellow {
-  /* 우사기 옐로우 */
-  --card-border: #fde047;
-  --card-shadow: #facc15;
-  --card-badge-bg: #fef9c3;
-  --card-tag-text: #b45309;
+  --card-border: #fef08a;
+  --card-badge-bg: #fefce8;
+  --card-tag-text: #a16207;
   --card-halo: #fefce8;
-  --card-accent: #eab308;
+  --card-accent: #facc15;
 }
 
 .theme-purple {
-  /* 모몽가 퍼플 */
   --card-border: #e9d5ff;
-  --card-shadow: #d8b4fe;
-  --card-badge-bg: #f3e8ff;
+  --card-badge-bg: #faf5ff;
   --card-tag-text: #7e22ce;
   --card-halo: #faf5ff;
   --card-accent: #c084fc;
 }
 
 .theme-orange {
-  /* 쿠리만주 오렌지 */
   --card-border: #fed7aa;
-  --card-shadow: #fdba74;
-  --card-badge-bg: #ffedd5;
+  --card-badge-bg: #fff7ed;
   --card-tag-text: #c2410c;
   --card-halo: #fff7ed;
   --card-accent: #fb923c;
 }
 
 .theme-mint {
-  /* 라코 민트 */
   --card-border: #bbf7d0;
-  --card-shadow: #86efac;
-  --card-badge-bg: #dcfce7;
+  --card-badge-bg: #f0fdf4;
   --card-tag-text: #15803d;
   --card-halo: #f0fdf4;
-  --card-accent: #4ade80;
+  --card-accent: #34d399;
 }
 
-/* 카드 상단: 번호 뱃지 & 캐릭터 볼터치 이모지 */
+/* 카드 상단: 번호 칩 & 미니 스왑 버튼 */
 .card-header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-  position: relative;
-  z-index: 3;
 }
 
 .student-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: var(--card-badge-bg);
   color: var(--card-tag-text);
-  padding: 4px 14px;
+  padding: 3px 10px;
   border-radius: var(--radius-pill);
-  font-family: var(--font-title);
-  font-size: 0.88rem;
-  letter-spacing: -0.2px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.82rem;
+  border: 1px solid var(--card-border);
 }
 
 .btn-mini-swap {
-  background: var(--card-halo);
-  border: 1.5px solid var(--card-border);
-  color: var(--card-tag-text);
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 }
 
 .btn-mini-swap:hover {
-  transform: rotate(180deg) scale(1.2);
+  transform: rotate(180deg);
   background: #ffffff;
+  border-color: var(--card-accent);
+  color: var(--card-tag-text);
 }
 
 .student-name-box {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   display: flex;
   align-items: baseline;
   gap: 6px;
@@ -716,82 +642,74 @@ body {
 
 .student-name {
   font-family: var(--font-title);
-  font-size: 1.75rem;
-  color: #2e2220;
+  font-size: 1.55rem;
+  color: #1e293b;
   letter-spacing: -0.3px;
 }
 
 .student-cheek {
   font-family: var(--font-cute);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--card-accent);
+  opacity: 0.9;
 }
 
-/* 카드 중앙: 역할 배지 (퐁당 마시멜로) */
+/* 카드 중앙: 역할 배지 */
 .role-assigned-box {
-  background: var(--card-halo);
-  border: 2.5px dashed var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 16px 14px;
+  background: var(--card-badge-bg);
+  border: 1.5px dashed var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   transition: transform 0.2s ease;
-  position: relative;
 }
 
 .role-icon-wrapper {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 8px;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 6px;
   background: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 2px solid var(--card-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--card-border);
 }
 
 .role-icon {
-  font-size: 2.4rem;
+  font-size: 1.85rem;
   display: block;
-  animation: chiikawaWobble 2.8s ease-in-out infinite;
-}
-
-@keyframes chiikawaWobble {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  33% { transform: translateY(-5px) rotate(-6deg); }
-  66% { transform: translateY(-5px) rotate(6deg); }
 }
 
 .role-label {
   font-family: var(--font-title);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: var(--card-tag-text);
   display: block;
   letter-spacing: -0.3px;
 }
 
-/* 카드 하단: 말풍선 메모지 스타일 임무 설명 */
+/* 카드 하단: 임무 설명 박스 */
 .role-duty-desc {
-  font-size: 0.92rem;
-  color: #594a47;
-  background: #ffffff;
-  padding: 12px 14px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--card-border);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  font-size: 0.88rem;
+  color: #475569;
+  background: #f8fafc;
+  padding: 10px 12px;
+  border-radius: var(--radius-xs);
+  border: 1px solid #edf2f7;
   flex-grow: 1;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  line-height: 1.48;
+  gap: 6px;
+  line-height: 1.45;
 }
 
 .duty-bullet {
   color: var(--card-accent);
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 /* 빈 상태 */
@@ -800,30 +718,29 @@ body {
   border-radius: var(--radius-lg);
   padding: 60px 20px;
   text-align: center;
-  box-shadow: var(--shadow-bubbly);
-  border: 3.5px dashed #ffd6e0;
+  box-shadow: var(--shadow-card);
+  border: 2px dashed #e2e8f0;
 }
 
 .empty-icon {
-  font-size: 4.8rem;
-  margin-bottom: 16px;
-  animation: diceRoll 2s infinite ease-in-out;
+  font-size: 4rem;
+  margin-bottom: 14px;
 }
 
 .empty-title {
   font-family: var(--font-title);
-  font-size: 1.8rem;
-  color: #3b2c28;
-  margin-bottom: 8px;
+  font-size: 1.6rem;
+  color: #1e293b;
+  margin-bottom: 6px;
 }
 
 .empty-desc {
-  color: var(--text-sub);
-  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
 }
 
 /* ========================================================
-   모달 공통 스타일 (명단 관리, 시트 연동)
+   모달 공통 스타일
    ======================================================== */
 .modal-backdrop {
   position: fixed;
@@ -831,15 +748,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(40, 25, 30, 0.45);
-  backdrop-filter: blur(5px);
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   padding: 16px;
 }
 
@@ -852,127 +769,125 @@ body {
   background: #ffffff;
   border-radius: var(--radius-lg);
   width: 100%;
-  max-width: 650px;
+  max-width: 620px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 24px 48px rgba(255, 182, 193, 0.35);
-  border: 4px solid #ffe4ea;
-  transform: translateY(20px) scale(0.97);
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e2e8f0;
+  transform: translateY(16px);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   overflow: hidden;
 }
 
 .modal-backdrop.active .modal-box {
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .modal-header {
-  padding: 20px 26px;
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2.5px solid #ffe8ee;
-  background: #fff8f9;
+  border-bottom: 1.5px solid #f1f5f9;
+  background: #fafaf9;
 }
 
 .modal-title {
   font-family: var(--font-title);
-  font-size: 1.5rem;
-  color: #3b2c28;
+  font-size: 1.35rem;
+  color: #1e293b;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .btn-close-modal {
-  background: #fff0f3;
-  border: 2px solid #ffd6e0;
-  font-size: 1.2rem;
-  width: 38px;
-  height: 38px;
+  background: #f1f5f9;
+  border: none;
+  font-size: 1.1rem;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff6b8b;
+  color: #64748b;
   transition: all 0.2s ease;
 }
 
 .btn-close-modal:hover {
-  background: #ffe4ea;
-  transform: scale(1.1);
+  background: #fee2e2;
+  color: #ef4444;
 }
 
 .modal-body {
-  padding: 26px;
+  padding: 24px;
   overflow-y: auto;
   flex-grow: 1;
 }
 
 .modal-footer {
-  padding: 18px 26px;
-  border-top: 2.5px solid #ffe8ee;
-  background: #fff8f9;
+  padding: 16px 24px;
+  border-top: 1.5px solid #f1f5f9;
+  background: #fafaf9;
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* 탭 버튼 */
 .modal-tabs {
   display: flex;
   gap: 8px;
-  border-bottom: 2.5px solid #ffe4ea;
-  margin-bottom: 22px;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 20px;
 }
 
 .tab-btn {
   background: transparent;
   border: none;
   font-family: var(--font-title);
-  font-size: 1.15rem;
-  color: #8c7873;
-  padding: 10px 20px;
+  font-size: 1.05rem;
+  color: #64748b;
+  padding: 9px 16px;
   cursor: pointer;
-  border-bottom: 3.5px solid transparent;
-  margin-bottom: -2.5px;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
   transition: all 0.2s ease;
 }
 
 .tab-btn.active {
-  color: #ff6b8b;
-  border-bottom-color: #ff6b8b;
+  color: #ff6b87;
+  border-bottom-color: #ff6b87;
 }
 
-/* 폼 스타일 */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .form-label {
   display: block;
-  font-family: var(--font-title);
-  font-size: 1.05rem;
-  color: #3b2c28;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #1e293b;
   margin-bottom: 6px;
 }
 
 .form-help {
-  font-size: 0.88rem;
-  color: #8c7873;
+  font-size: 0.82rem;
+  color: #64748b;
   margin-bottom: 8px;
 }
 
 .form-textarea {
   width: 100%;
-  min-height: 140px;
-  padding: 14px;
-  border: 2.5px solid #ffe4ea;
+  min-height: 130px;
+  padding: 12px;
+  border: 1.5px solid #e2e8f0;
   border-radius: var(--radius-sm);
   font-family: var(--font-main);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   resize: vertical;
 }
@@ -981,37 +896,37 @@ body {
 .form-input:focus {
   outline: none;
   border-color: #ff8da1;
-  box-shadow: 0 0 0 3px rgba(255, 141, 161, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 141, 161, 0.15);
 }
 
 .form-input {
   width: 100%;
-  padding: 12px 14px;
-  border: 2.5px solid #ffe4ea;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e8f0;
   border-radius: var(--radius-sm);
   font-family: var(--font-main);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
 }
 
 .guide-box {
-  background: #fff5f7;
-  border-left: 4px solid #ff6b8b;
-  border-radius: 10px;
-  padding: 16px;
-  margin-top: 16px;
-  font-size: 0.9rem;
-  color: #4a3b38;
-  line-height: 1.6;
+  background: #fdf2f8;
+  border-left: 3.5px solid #ec4899;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
 }
 
 .guide-code {
-  background: #2b1d24;
-  color: #fce7f3;
-  padding: 12px 14px;
-  border-radius: 10px;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 10px 12px;
+  border-radius: 8px;
   font-family: monospace;
-  font-size: 0.82rem;
-  margin-top: 10px;
+  font-size: 0.8rem;
+  margin-top: 8px;
   overflow-x: auto;
   user-select: all;
 }
@@ -1019,7 +934,7 @@ body {
 /* 토스트 */
 .toast-container {
   position: fixed;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1030,32 +945,32 @@ body {
 }
 
 .toast {
-  background: rgba(59, 44, 40, 0.95);
+  background: rgba(15, 23, 42, 0.92);
   color: #ffffff;
-  padding: 14px 26px;
+  padding: 12px 22px;
   border-radius: var(--radius-pill);
-  font-family: var(--font-title);
-  font-size: 1.05rem;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-  border: 2px solid #ffccd5;
-  animation: toastPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.94rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  animation: toastFade 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-@keyframes toastPop {
+@keyframes toastFade {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.9);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 /* ========================================================
    교실 게시판 부착용 A4 인쇄 스타일 (@media print)
-   치이카와 감성을 담은 귀엽고 깔끔한 출력 서식
+   6학년 4반 게시판 최적화
    ======================================================== */
 .print-only-container {
   display: none;
@@ -1092,15 +1007,15 @@ body {
 
   .print-header {
     text-align: center;
-    border-bottom: 2.5pt solid #2d3748;
+    border-bottom: 2.5pt solid #1e293b;
     padding-bottom: 5mm;
-    margin-bottom: 6mm;
+    margin-bottom: 5mm;
   }
 
   .print-badge-row {
     font-size: 10pt;
     font-weight: bold;
-    color: #4a5568;
+    color: #475569;
     margin-bottom: 3mm;
     display: flex;
     justify-content: space-between;
@@ -1110,14 +1025,14 @@ body {
     font-size: 24pt;
     font-weight: 800;
     font-family: var(--font-title);
-    color: #1a202c;
+    color: #0f172a;
     letter-spacing: -0.5px;
     margin-bottom: 2mm;
   }
 
   .print-subtitle {
     font-size: 10.5pt;
-    color: #4a5568;
+    color: #475569;
   }
 
   .print-grid {
@@ -1127,8 +1042,8 @@ body {
   }
 
   .print-card {
-    border: 1.5pt solid #cbd5e1 !important;
-    border-radius: 6mm !important;
+    border: 1.2pt solid #cbd5e1 !important;
+    border-radius: 5mm !important;
     padding: 3.5mm 4.5mm !important;
     background: #f8fafc !important;
     display: flex;
@@ -1152,7 +1067,7 @@ body {
     font-size: 14pt;
     font-weight: bold;
     font-family: var(--font-title);
-    color: #1a202c;
+    color: #0f172a;
   }
 
   .print-num-badge {
@@ -1178,7 +1093,7 @@ body {
   .print-role-name {
     font-size: 12pt;
     font-weight: bold;
-    color: #2563eb;
+    color: #1d4ed8;
   }
 
   .print-duty-desc {
@@ -1211,7 +1126,7 @@ body {
   }
 
   .main-title {
-    font-size: 2.1rem;
+    font-size: 1.95rem;
   }
 
   .top-nav {

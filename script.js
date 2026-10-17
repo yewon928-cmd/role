@@ -36,7 +36,7 @@ let state = {
   students: [],
   roles: [],
   assignments: [], // [{ studentIndex, studentName, role, cheek }]
-  className: "우리들의 행복한 3학년 2반",
+  className: "6학년 4반",
   termName: "2025학년도 1학기",
   appsScriptUrl: ""
 };
@@ -56,15 +56,22 @@ function loadSavedData() {
     const savedConfig = localStorage.getItem('role_app_config');
     if (savedConfig) {
       const parsed = JSON.parse(savedConfig);
-      if (parsed.className) state.className = parsed.className;
+      if (parsed.className && !parsed.className.includes("3학년")) {
+        state.className = parsed.className;
+      } else {
+        state.className = "6학년 4반";
+      }
       if (parsed.termName) state.termName = parsed.termName;
       if (parsed.appsScriptUrl) state.appsScriptUrl = parsed.appsScriptUrl;
+    } else {
+      state.className = "6학년 4반";
     }
   } catch (e) {
     console.error("데이터 로드 중 오류:", e);
     state.students = [...DEFAULT_STUDENTS];
     state.roles = [...DEFAULT_ROLES];
     state.assignments = [];
+    state.className = "6학년 4반";
   }
 }
 
@@ -252,7 +259,7 @@ function executeAssignment() {
   // 화면 렌더링
   renderCards();
   renderPrintView();
-  showToast("🎉 뽀용! 치이카와 역할이 예쁘게 배정되었습니다! 와아~");
+  showToast("🎉 6학년 4반 역할 배정이 깔끔하게 완료되었습니다! (와아~)");
 }
 
 // 8. 화면 카드 렌더링 (치이카와 몽글몽글 스타일)
@@ -292,13 +299,15 @@ function renderCards() {
     const card = document.createElement('div');
     card.className = `role-card theme-${theme}`;
     card.dataset.index = index;
-    // 카드 톡-톡 순차 등장 딜레이
-    card.style.animationDelay = `${index * 0.04}s`;
+    // 카드 순차 등장
+    card.style.animationDelay = `${index * 0.03}s`;
+
+    const paddedNum = String(item.studentIndex).padStart(2, '0');
 
     card.innerHTML = `
       <div class="card-header-row">
         <span class="student-badge">
-          <span>🐾 ${item.studentIndex}번</span>
+          <span>🐾 ${paddedNum}번</span>
         </span>
         <button type="button" class="btn-mini-swap" title="다른 역할로 변경" onclick="openSwapRoleModal(${index})">
           🔄
