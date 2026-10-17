@@ -1,0 +1,6 @@
+{
+  "name": "학급 1인 1역할 배정 도우미",
+  "description": "초등학생 눈높이에 맞춘 아기자기하고 귀여운 학급 1인 1역할 랜덤 배정 및 교실 게시판용 A4 인쇄 웹 애플리케이션",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
